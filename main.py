@@ -1,4 +1,5 @@
-import random, time
+import random
+import time
 import tabulate
 
 def ssort(L):
@@ -10,7 +11,7 @@ def ssort(L):
         print('selecting minimum %s' % L[m])       
         L[0], L[m] = L[m], L[0]
         print('recursively sorting L=%s\n' % L[1:])
-        return [L[0]] + selection_sort(L[1:])
+        return [L[0]] + ssort(L[1:])
         
 def qsort(a, pivot_fn):
     ## TO DO
@@ -58,7 +59,7 @@ def compare_sort(sizes=[100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 10
     ### TODO - sorting algorithms for comparison
     qsort_fixed_pivot = lambda x: x[0]
     qsort_random_pivot = lambda x: random.choice(x)
-    tim_sort = lambda x: x.sort() 
+    tim_sort = lambda x: mylist.sort(x) # I think this line is incorrect, but I'm not sure how to fix it 
     result = []
     for size in sizes:
         # create list in ascending order
